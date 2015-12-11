@@ -37,6 +37,11 @@
 #define CONFIG_CONS_INDEX               1
 #define CONFIG_BAUDRATE                 115200
 
+/* Filesystems and image support */
+#define CONFIG_SUPPORT_RAW_INITRD
+#define CONFIG_CMD_FS_GENERIC
+#define CONFIG_DOS_PARTITION
+ 
 /* Miscellaneous configurable options */
 #define CONFIG_SYS_LONGHELP
 #define CONFIG_CMDLINE_EDITING
