@@ -40,6 +40,8 @@
 #define CONFIG_BAUDRATE                 115200
 
 /* Filesystems and image support */
+#define CONFIG_SUPPORT_RAW_INITRD
+#define CONFIG_CMD_FS_GENERIC
 #define CONFIG_DOS_PARTITION
 
 /* Miscellaneous configurable options */
