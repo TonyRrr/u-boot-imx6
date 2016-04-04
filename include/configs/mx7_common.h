@@ -80,5 +80,4 @@
 #define CONFIG_CMD_DEKBLOB
 #endif
 
-#define CONFIG_IMX_FIXED_IVT_OFFSET
 #endif
