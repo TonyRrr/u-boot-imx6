@@ -219,9 +219,7 @@
 				"usb start ;" \
 			"fi; " \
 			"for disk in 0 1 ; do ${dtype} dev ${disk} ;" \
-				"load " \
-					"${dtype} ${disk}:1 " \
-					"10008000 " \
+				"load ${dtype} ${disk}:1 10008000 " \
 					"/6x_bootscript" \
 					"&& source 10008000 ; " \
 			"done ; " \
@@ -245,8 +243,8 @@
 						"over USB; " \
 					"ums 0 $dtype $disk ;" \
 				"fi; " \
-		"	done; " \
-		"done ;" \
+			"done;" \
+		"done;" \
 		"setenv stdout serial,vga; " \
 		"echo no block devices found;" \
 		"\0" \
