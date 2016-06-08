@@ -1912,6 +1912,7 @@ static void *video_logo(void)
 	if (board_cfb_skip())
 		return 0;
 
+#ifndef CONFIG_VIDEO_SKIP_VERSION
 	sprintf(info, " %s", version_string);
 
 #ifndef CONFIG_HIDE_LOGO_VERSION
@@ -1927,6 +1928,7 @@ static void *video_logo(void)
 		y_off = 1;
 	} else
 		video_drawstring(VIDEO_INFO_X, VIDEO_INFO_Y, (uchar *) info);
+#endif
 
 #ifdef CONFIG_CONSOLE_EXTRA_INFO
 	{
@@ -2102,7 +2104,9 @@ static int cfg_video_init(void)
 #ifndef CONFIG_VIDEO_LOGO
 	if (!board_cfb_skip()){
 		video_console_address = video_fb_address;
+#ifndef CONFIG_VIDEO_SKIP_VERSION
 		video_drawstring(VIDEO_FONT_WIDTH, 0, (uchar *)version_string);
+#endif
 	}
 #endif
 #if defined(CONFIG_VIDEO_LOGO) || defined(CONFIG_SPLASH_SCREEN)
