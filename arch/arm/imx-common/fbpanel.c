@@ -3,7 +3,7 @@
  */
 
 #include <common.h>
-#include <asm/errno.h>
+#include <errno.h>
 #include <asm/arch/clock.h>
 #include <asm/arch/crm_regs.h>
 #ifndef CONFIG_MX51
