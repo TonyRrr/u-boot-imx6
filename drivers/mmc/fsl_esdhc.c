@@ -249,7 +249,7 @@ static int esdhc_setup_data(struct mmc *mmc, struct mmc_data *data)
 #endif
 		if (wml_value > WML_WR_WML_MAX)
 			wml_value = WML_WR_WML_MAX_VAL;
-#ifndef CONFIG_SYS_FSL_ESDH_GPIO_WP
+#ifndef CONFIG_SYS_FSL_ESDHC_GPIO_WP
 		if (priv->wp_enable) {
 			if ((esdhc_read32(&regs->prsstat) &
 			    PRSSTAT_WPSPL) == 0) {
