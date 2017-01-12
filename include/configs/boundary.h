@@ -375,6 +375,7 @@
 	"uboot_defconfig=" CONFIG_DEFCONFIG "\0" \
 	"umsdevs=" BD_UMSDEVS "\0" \
 	"upgradeu=script=/6x_upgrade; run runscript\0" \
+	"usb_pgood_delay=2000\0" \
 	"usbnet_devaddr=00:19:b8:00:00:02\0" \
 	"usbnet_hostaddr=00:19:b8:00:00:01\0" \
 	"usbnetwork=setenv ethact usb_ether; " \
