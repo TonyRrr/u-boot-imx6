@@ -11,15 +11,12 @@
 
 #define CONFIG_MACH_TYPE	3769
 
-#define CONFIG_CI_UDC
 #ifdef CONFIG_MX6Q
 #define CONFIG_CMD_SATA
 #endif
-#define CONFIG_CMD_SF
 #define CONFIG_PHY_ATHEROS
 #define CONFIG_SYS_FSL_USDHC_NUM	2
 #define CONFIG_USB_MAX_CONTROLLER_COUNT 2
-#define CONFIG_VIDEO
 #define BD_I2C_MASK	6
 
 #include "boundary.h"
