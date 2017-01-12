@@ -140,13 +140,13 @@
 
 /* USB Configs */
 #ifdef CONFIG_USB_MAX_CONTROLLER_COUNT
+#ifndef CONFIG_MX7D
 #define CONFIG_USB_EHCI
-#ifdef CONFIG_MX7D
-#define CONFIG_USB_EHCI_MX7
-#elif defined(CONFIG_MX51)
+#if defined(CONFIG_MX51)
 #define CONFIG_USB_EHCI_MX5
 #else
 #define CONFIG_USB_EHCI_MX6
+#endif
 #endif
 #define CONFIG_USB_HOST_ETHER
 #define CONFIG_USB_ETHER_ASIX
