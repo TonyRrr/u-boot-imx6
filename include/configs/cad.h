@@ -14,15 +14,11 @@
 
 #define CONFIG_MACH_TYPE	3774
 #define CONFIG_BOARD_NAME	"cad"
-#define CONFIG_SDHC3_CD		-1
-#define CONFIG_SDHC4_CD		IMX_GPIO_NR(4, 20)
 
 #define CONFIG_ETHPRIME			"usb_ether"
 
 #define CONFIG_MXC_SPI_DISPLAY
 
-#define CONFIG_CI_UDC
-#define CONFIG_CMD_SF
 #define CONFIG_IMX_HDMI
 #define CONFIG_PREBOOT	"if itest.s  \"\" != \"$splashsize\" ; then " \
 				"sf probe && " \
@@ -31,7 +27,6 @@
 			"fi"
 #define CONFIG_SYS_FSL_USDHC_NUM	3
 #define CONFIG_USB_MAX_CONTROLLER_COUNT 1
-#define CONFIG_VIDEO
 #define BD_I2C_MASK	7
 #define BD_SPLASH_FLASH	"f0000"
 
