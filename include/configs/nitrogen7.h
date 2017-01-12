@@ -9,9 +9,6 @@
 #ifndef __NITROGEN7_CONFIG_H
 #define __NITROGEN7_CONFIG_H
 
-/* Boot in secure mode for CAAM to work */
-#define CONFIG_MX7_SEC
-
 #include "mx7_common.h"
 
 #define CONFIG_DBG_MONITOR
@@ -28,8 +25,6 @@
 
 #define CONFIG_DFU_MMC
 
-/* Network */
-#define CONFIG_FEC_DMA_MINALIGN		64
 /* ENET1 */
 #define IMX_FEC_BASE			ENET_IPS_BASE_ADDR
 
@@ -41,7 +36,6 @@
 
 #ifdef CONFIG_SPI_FLASH
 #define CONFIG_FSL_QSPI
-#define CONFIG_CMD_SF
 /* #define CONFIG_SYS_FSL_QSPI_AHB */
 #define FSL_QSPI_FLASH_NUM		1
 #define FSL_QSPI_FLASH_SIZE		SZ_16M
@@ -54,20 +48,20 @@
 #define CONFIG_SUPPORT_EMMC_BOOT	/* eMMC specific */
 #define CONFIG_SYS_MMC_IMG_LOAD_PART	1
 
-#define CONFIG_CI_UDC
 #define CONFIG_FEC_MXC_PHYADDR          4
 #define CONFIG_PHY_ATHEROS
 #define CONFIG_SYS_FSL_USDHC_NUM	2
 #define CONFIG_USB_MAX_CONTROLLER_COUNT 2
+#define CONFIG_MXC_UART_BASE            UART1_IPS_BASE_ADDR
 #define BD_CONSOLE	"ttymxc0"
 #define BD_I2C_MASK	0xf
 
 /* M4 specific */
-#define CONFIG_SYS_AUXCORE_BOOTDATA_DDR		0x9ff00000
-#define CONFIG_SYS_AUXCORE_BOOTDATA_OCRAM	0x00910000
-#define CONFIG_SYS_AUXCORE_BOOTDATA_QSPI	0x601e0000
-#define CONFIG_SYS_AUXCORE_BOOTDATA_TCM		0x007F8000
-#define CONFIG_EXTRA_ENV_M4 \
+#define SYS_AUXCORE_BOOTDATA_DDR	0x9ff00000
+#define SYS_AUXCORE_BOOTDATA_OCRAM	0x00910000
+#define SYS_AUXCORE_BOOTDATA_QSPI	0x601e0000
+#define SYS_AUXCORE_BOOTDATA_TCM	0x007F8000
+#define EXTRA_ENV_M4 \
 	"m4image=m4_fw.bin\0" \
 	"m4offset=0x1e0000\0" \
 	"m4size=0x8000\0" \
@@ -102,6 +96,6 @@
 	"initrd_addr=0x83800000\0" \
 	"bootcmd_mfg=run mfgtool_args;bootz ${loadaddr} ${initrd_addr} ${fdt_addr};\0" \
 	"cmd_custom=echo\0" \
-	CONFIG_EXTRA_ENV_M4
+	EXTRA_ENV_M4
 
 #endif	/* __CONFIG_H */

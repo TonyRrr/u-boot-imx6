@@ -468,8 +468,14 @@ int board_eth_init(bd_t *bis)
 	ret = fecmxc_initialize_multi(bis, 0,
 		CONFIG_FEC_MXC_PHYADDR, IMX_FEC_BASE);
 	if (ret)
-		printf("FEC1 MXC: %s:failed\n", __func__);
+		printf("FEC0 MXC: %s:failed\n", __func__);
 
+#ifdef CONFIG_CI_UDC
+	/* For otg ethernet*/
+	if (!getenv("eth1addr"))
+		setenv("eth1addr", getenv("usbnet_devaddr"));
+	usb_eth_initialize(bis);
+#endif
 	return ret;
 }
 
