@@ -13,15 +13,12 @@
 
 #define CONFIG_MACH_TYPE	0xffffffff
 
-#define CONFIG_SYS_CONSOLE_IS_IN_ENV
-#define CONFIG_SYS_CONSOLE_OVERWRITE_ROUTINE
 #define CONFIG_CONSOLE_MUX
 
-#define CONFIG_CI_UDC
-#define CONFIG_CMD_SF
 #define CONFIG_PHY_MICREL_KSZ9021
 #define CONFIG_SYS_FSL_USDHC_NUM	1
 #define CONFIG_USB_MAX_CONTROLLER_COUNT 1
+#define BD_I2C_MASK	7
 #define BD_BOOT_DEVS "usb mmc"
 #define BD_USB_START 	"setexpr otgstat *0x020c9030 \\\\& 0x08000000;" \
 				"if itest.l ${otgstat} -eq 0 ; then " \
