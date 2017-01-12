@@ -343,32 +343,6 @@ static void qspi_set_lut(struct fsl_qspi_priv *priv)
 		qspi_write32(priv->flags, &p[3], e->entry[3]);
 	}
 
-	/*
-	 * Read any device register.
-	 * Used for Spansion S25FS-S family flash only.
-	 */
-	lut_base = SEQID_RDAR * 4;
-	qspi_write32(priv->flags, &regs->lut[lut_base],
-		     OPRND0(QSPI_CMD_RDAR) | PAD0(LUT_PAD1) |
-		     INSTR0(LUT_CMD) | OPRND1(ADDR24BIT) |
-		     PAD1(LUT_PAD1) | INSTR1(LUT_ADDR));
-	qspi_write32(priv->flags, &regs->lut[lut_base + 1],
-		     OPRND0(8) | PAD0(LUT_PAD1) | INSTR0(LUT_DUMMY) |
-		     OPRND1(1) | PAD1(LUT_PAD1) |
-		     INSTR1(LUT_READ));
-
-	/*
-	 * Write any device register.
-	 * Used for Spansion S25FS-S family flash only.
-	 */
-	lut_base = SEQID_WRAR * 4;
-	qspi_write32(priv->flags, &regs->lut[lut_base],
-		     OPRND0(QSPI_CMD_WRAR) | PAD0(LUT_PAD1) |
-		     INSTR0(LUT_CMD) | OPRND1(ADDR24BIT) |
-		     PAD1(LUT_PAD1) | INSTR1(LUT_ADDR));
-	qspi_write32(priv->flags, &regs->lut[lut_base + 1],
-		     OPRND0(1) | PAD0(LUT_PAD1) | INSTR0(LUT_WRITE));
-
 	/* Lock the LUT */
 	qspi_write32(priv->flags, &regs->lutkey, LUT_KEY_VALUE);
 	qspi_write32(priv->flags, &regs->lckcr, QSPI_LCKCR_LOCK);
@@ -611,12 +585,6 @@ static void qspi_op_read(struct fsl_qspi_priv *priv, u32 *rxbuf, u32 len)
 	struct fsl_qspi_regs *regs = priv->regs;
 	u32 mcr_reg, data;
 	int i, size;
-	u32 seqid;
-
-	if (priv->cur_seqid == QSPI_CMD_RDAR)
-		seqid = SEQID_RDAR;
-	else
-		seqid = SEQID_FAST_READ;
 
 	mcr_reg = qspi_read32(priv->flags, &regs->mcr);
 	qspi_write32(priv->flags, &regs->rbct, QSPI_RBCT_RXBRD_USEIPS);
@@ -662,7 +630,7 @@ static void qspi_op_write(struct fsl_qspi_priv *priv, u8 *txbuf, u32 len)
 
 	/* Default is page programming */
 	seqid = SEQID_PP;
-	if (priv->cur_seqid == QSPI_CMD_WRAR)
+	if (priv->cur_cmd == QSPI_CMD_WRAR)
 		seqid = SEQID_WRAR;
 #ifdef CONFIG_SPI_FLASH_BAR
 	if (priv->cur_cmd == QSPI_CMD_BRWR)
