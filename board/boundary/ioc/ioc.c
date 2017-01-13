@@ -13,7 +13,7 @@
 #include <asm/arch/sys_proto.h>
 #include <malloc.h>
 #include <asm/arch/mx6-pins.h>
-#include <asm/errno.h>
+#include <linux/errno.h>
 #include <asm/gpio.h>
 #include <asm/imx-common/boot_mode.h>
 #include <asm/imx-common/fbpanel.h>
@@ -32,7 +32,7 @@
 #include <input.h>
 #include <netdev.h>
 #include <splash.h>
-#include <usb/ehci-fsl.h>
+#include <usb/ehci-ci.h>
 #include "spi_display.h"
 
 DECLARE_GLOBAL_DATA_PTR;
