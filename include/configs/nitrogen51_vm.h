@@ -21,8 +21,6 @@
 #include <asm/arch/imx-regs.h>
 #include <asm/imx-common/gpio.h>
 
-#define CONFIG_DISPLAY_BOARDINFO
-#define CONFIG_DISPLAY_CPUINFO
 #define CONFIG_SYS_FSL_CLK
 
 /* ATAGs */
@@ -45,36 +43,22 @@
 #define CONFIG_BAUDRATE         115200
 
 /* Filesystems and image support */
-#define CONFIG_OF_LIBFDT
-#define CONFIG_CMD_BOOTZ
 #define CONFIG_SUPPORT_RAW_INITRD
-#define CONFIG_CMD_FS_GENERIC
 #define CONFIG_DOS_PARTITION
-#define CONFIG_CMD_EXT2
-#define CONFIG_CMD_EXT4
-#define CONFIG_CMD_EXT4_WRITE
-#define CONFIG_CMD_FAT
 
 /* Miscellaneous configurable options */
 #undef CONFIG_CMD_IMLS
 #define CONFIG_SYS_LONGHELP
-#define CONFIG_SYS_HUSH_PARSER
 #define CONFIG_CMDLINE_EDITING
 #define CONFIG_AUTO_COMPLETE
 #define CONFIG_SYS_CBSIZE       512
 #define CONFIG_SYS_MAXARGS      32
 #define CONFIG_SYS_BARGSIZE     CONFIG_SYS_CBSIZE
 
-#ifndef CONFIG_SYS_DCACHE_OFF
-#define CONFIG_CMD_CACHE
-#endif
-
 /* GPIO */
 #define CONFIG_MXC_GPIO
 
 /* MMC */
-#define CONFIG_MMC
-#define CONFIG_CMD_MMC
 #define CONFIG_GENERIC_MMC
 #define CONFIG_BOUNCE_BUFFER
 #define CONFIG_FSL_ESDHC
@@ -98,7 +82,6 @@
 #define CONFIG_MXC_USB_PORT	1
 #define CONFIG_MXC_USB_PORTSC	PORT_PTS_ULPI
 #define CONFIG_MXC_USB_FLAGS	MXC_EHCI_POWER_PINS_ENABLED
-#define CONFIG_CI_UDC
 #define CONFIG_USB_MAX_CONTROLLER_COUNT 1
 #endif
 #define CONFIG_SYS_CLKTL_CBCDR	0x59E35100
@@ -118,7 +101,6 @@
 #define CONFIG_PHYLIB
 #define CONFIG_FEC_MXC
 #define CONFIG_FEC_MXC_PHYADDR		5
-#define CONFIG_CMD_MII
 
 /* PMIC Configs */
 #define CONFIG_POWER
@@ -139,10 +121,8 @@
 #define CONFIG_SYS_MMC_MAX_BLK_COUNT 1
 #endif
 
-#define CONFIG_CMD_SF
 #if 1
 #define CONFIG_VIDEO_LOGO
-#define CONFIG_VIDEO
 #endif
 #define BD_I2C_MASK	3
 #define BD_CONSOLE "ttymxc0"

@@ -12,7 +12,7 @@
 #include <asm/arch/iomux-mx51.h>
 #include <asm/arch/sys_proto.h>
 #include <malloc.h>
-#include <asm/errno.h>
+#include <linux/errno.h>
 #include <asm/gpio.h>
 #include <asm/imx-common/boot_mode.h>
 #include <asm/imx-common/fbpanel.h>
@@ -32,7 +32,7 @@
 #include <power/pmic.h>
 #include <fsl_pmic.h>
 #include <mc13892.h>
-#include <usb/ehci-fsl.h>
+#include <usb/ehci-ci.h>
 
 /* Special MXCFB sync flags are here. */
 #include "../drivers/video/mxcfb.h"
