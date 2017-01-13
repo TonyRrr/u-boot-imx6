@@ -13,8 +13,6 @@
 
 #define CONFIG_MACH_TYPE	3769
 
-#define CONFIG_CI_UDC
-#define CONFIG_CMD_SF
 #define CONFIG_PHY_MICREL_KSZ9021
 #define CONFIG_PREBOOT	"if itest.s  \"\" != \"$bmpsize\" ; then " \
 				"sf probe && " \
@@ -23,7 +21,6 @@
 			"fi"
 #define CONFIG_SYS_FSL_USDHC_NUM	3
 #define CONFIG_USB_MAX_CONTROLLER_COUNT 2
-#define CONFIG_VIDEO
 #define BD_I2C_MASK	7
 #define BD_SPLASH_FLASH "f0000"
 
