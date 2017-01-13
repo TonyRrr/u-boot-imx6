@@ -15,15 +15,12 @@
 
 #define CONFIG_FEC_MAC_FUSE
 
-#define CONFIG_CI_UDC
 #ifdef CONFIG_MX6Q
 #define CONFIG_CMD_SATA
 #endif
-#define CONFIG_CMD_SF
 #define CONFIG_IMX_HDMI
 #define CONFIG_SYS_FSL_USDHC_NUM	2
 #define CONFIG_USB_MAX_CONTROLLER_COUNT 2
-#define CONFIG_VIDEO
 #define BD_I2C_MASK	7
 
 #include "boundary.h"
