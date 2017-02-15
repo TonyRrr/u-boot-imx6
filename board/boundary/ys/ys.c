@@ -24,7 +24,7 @@
 #include <miiphy.h>
 #include <netdev.h>
 #include <usb.h>
-#include <usb/ehci-fsl.h>
+#include <usb/ehci-ci.h>
 
 DECLARE_GLOBAL_DATA_PTR;
 
