@@ -7,7 +7,6 @@
 #ifndef __BOUNDARY_H
 #define __BOUNDARY_H
 
-#define CONFIG_BOARD_EARLY_INIT_F
 #define CONFIG_MISC_INIT_R
 #define CONFIG_BOARD_LATE_INIT
 
@@ -81,9 +80,7 @@
 /* MMC Configs */
 #ifdef CONFIG_SYS_FSL_USDHC_NUM
 #define CONFIG_SYS_FSL_ESDHC_ADDR	0
-#define CONFIG_EFI_PARTITION
 #endif
-
 
 #ifdef CONFIG_CMD_SF
 #ifndef CONFIG_FSL_QSPI
@@ -457,7 +454,6 @@
 #define CONFIG_FASTBOOT_FLASH
 #define CONFIG_FASTBOOT_FLASH_MMC_DEV   BD_FASTBOOT_FLASH_MMC_DEV
 #define CONFIG_CMD_GPT
-#define CONFIG_PARTITION_UUIDS
 
 /* USB Device Firmware Update support */
 #define CONFIG_USB_FUNCTION_DFU
