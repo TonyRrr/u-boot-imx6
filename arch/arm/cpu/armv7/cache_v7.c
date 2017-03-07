@@ -117,6 +117,9 @@ void flush_dcache_all(void)
  */
 void invalidate_dcache_range(unsigned long start, unsigned long stop)
 {
+	if (!dcache_status())
+		return;
+
 	check_cache_range(start, stop);
 
 	v7_dcache_maint_range(start, stop, ARMV7_DCACHE_INVAL_RANGE);
@@ -131,6 +134,9 @@ void invalidate_dcache_range(unsigned long start, unsigned long stop)
  */
 void flush_dcache_range(unsigned long start, unsigned long stop)
 {
+	if (!dcache_status())
+		return;
+
 	check_cache_range(start, stop);
 
 	v7_dcache_maint_range(start, stop, ARMV7_DCACHE_CLEAN_INVAL_RANGE);
