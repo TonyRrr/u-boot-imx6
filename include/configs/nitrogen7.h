@@ -18,9 +18,6 @@
 #define CONFIG_STACKSIZE		SZ_128K
 #define RAM_SIZE			PHYS_SDRAM_SIZE
 
-/* FLASH and environment organization */
-#define CONFIG_SYS_NO_FLASH
-
 #define CONFIG_IMX_THERMAL
 
 #define CONFIG_DFU_MMC
