@@ -13,8 +13,6 @@
 /***********************************/
 #define CONFIG_MXC_GPT_HCLK
 
-#define CONFIG_SYS_NO_FLASH
-
 #define CONFIG_SYS_BOOTM_LEN	0x1000000
 
 #include <linux/sizes.h>
@@ -44,7 +42,6 @@
 
 /* Filesystems and image support */
 #define CONFIG_SUPPORT_RAW_INITRD
-#define CONFIG_DOS_PARTITION
 
 /* Miscellaneous configurable options */
 #undef CONFIG_CMD_IMLS
@@ -59,14 +56,11 @@
 #define CONFIG_MXC_GPIO
 
 /* MMC */
-#define CONFIG_GENERIC_MMC
 #define CONFIG_BOUNCE_BUFFER
 #define CONFIG_FSL_ESDHC
 #define ESDHCI_QUIRK_BROKEN_TIMEOUT_VALUE
 #define CONFIG_SYS_FSL_ESDHC_ADDR	MMC_SDHC1_BASE_ADDR
 #define CONFIG_SYS_FSL_ESDHC_NUM	1
-#define CONFIG_EFI_PARTITION
-
 
 /* Fuses */
 /* #define CONFIG_IIM_MAC_ADDR_INDEX	9 */
